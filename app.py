@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pickle
 import numpy as np
@@ -124,11 +123,11 @@ def lookup_smiles(drug_name):
 
 @st.cache_resource
 def load_models():
-    with open("/content/cancerpredict_app/models/random_forest.pkl", "rb") as f:
+    with open("models/random_forest_compressed.pkl", "rb") as f:
         rf = pickle.load(f)
-    with open("/content/cancerpredict_app/models/xgboost.pkl", "rb") as f:
+    with open("models/xgboost.pkl", "rb") as f:
         xgb = pickle.load(f)
-    with open("/content/cancerpredict_app/models/scaler.pkl", "rb") as f:
+    with open("models/scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
     return rf, xgb, scaler
 
